@@ -7,29 +7,37 @@ import jm.task.core.jdbc.model.User;
 
 import java.util.List;
 
-public class UserServiceImpl implements UserService {
-   private UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
-    public void createUsersTable() {
-        userDaoHibernate .createUsersTable();
+public class UserServiceImpl implements UserService{
+
+UserDao userDao = new UserDaoHibernateImpl();
+        @Override
+        public void createUsersTable() {
+          userDao. cleanUsersTable();
+        }
+
+        @Override
+        public void dropUsersTable() {
+            userDao.   dropUsersTable();
+        }
+
+        @Override
+        public void saveUser(String name, String lastName, byte age) {
+            userDao.  saveUser(name, lastName, age);
+        }
+
+        @Override
+        public void removeUserById(long id) {
+            userDao. removeUserById(id);
+        }
+
+        @Override
+        public List<User> getAllUsers() {
+          return userDao.getAllUsers();
+        }
+
+        @Override
+        public void cleanUsersTable() {
+            userDao.  cleanUsersTable();
+        }
     }
 
-    public void dropUsersTable() {
-        userDaoHibernate .dropUsersTable();
-    }
-
-    public void saveUser(String name, String lastName, byte age) {
-        userDaoHibernate .saveUser(name,lastName,age);
-    }
-
-    public void removeUserById(long id) {
-        userDaoHibernate .removeUserById(id);
-    }
-
-    public List<User> getAllUsers() {
-        return userDaoHibernate .getAllUsers();
-    }
-
-    public void cleanUsersTable() {
-        userDaoHibernate .cleanUsersTable();
-    }
-}
