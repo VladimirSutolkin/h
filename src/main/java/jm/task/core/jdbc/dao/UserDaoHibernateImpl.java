@@ -35,9 +35,7 @@ public class UserDaoHibernateImpl implements UserDao {
         System.out.println("Таблица создана");
     } catch (Exception e) {
         e.printStackTrace();
-        if (transaction != null) {
-            transaction.rollback();
-        }
+
     } finally {
         if (session != null)
             session.close();
@@ -56,9 +54,7 @@ public class UserDaoHibernateImpl implements UserDao {
         System.out.println("Таблица удалена");
     } catch (Exception e) {
         e.printStackTrace();
-        if (transaction != null) {
-            transaction.rollback();
-        }
+
     } finally {
         if (session != null)
             session.close();
@@ -79,9 +75,7 @@ public class UserDaoHibernateImpl implements UserDao {
            transaction.commit();
         } catch (Exception e ) {
             e.printStackTrace();
-            if (transaction != null) {
-                transaction.rollback();
-            }
+
 
         }
         finally {
@@ -108,9 +102,7 @@ try {
         session.getTransaction().commit();
     } catch (Exception e) {
         e.printStackTrace();
-        if (transaction != null) {
-            transaction.rollback();
-        }
+
     } finally {
         if (session != null)
             session.close();
@@ -133,9 +125,7 @@ try {
 
     } catch (Exception e) {
         e.printStackTrace();
-        if (transaction != null) {
-            transaction.rollback();
-        }
+
     } finally {
         if (session != null)
             session.close();
@@ -163,9 +153,7 @@ try {
 
     } catch (Exception e) {
         e.printStackTrace();
-        if (transaction != null) {
-            transaction.rollback();
-        }
+
     } finally {
         if (session != null)
             session.close();
