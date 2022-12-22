@@ -75,9 +75,12 @@ public class UserDaoHibernateImpl implements UserDao {
            transaction.commit();
         } catch (Exception e ) {
             e.printStackTrace();
-
+            if (transaction != null) {
+                transaction.rollback();
+            }
 
         }
+
         finally {
             if (session != null)
              session.close();
@@ -102,6 +105,9 @@ try {
         session.getTransaction().commit();
     } catch (Exception e) {
         e.printStackTrace();
+    if (transaction != null) {
+        transaction.rollback();
+    }
 
     } finally {
         if (session != null)
@@ -125,6 +131,9 @@ try {
 
     } catch (Exception e) {
         e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
 
     } finally {
         if (session != null)
@@ -153,6 +162,9 @@ try {
 
     } catch (Exception e) {
         e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
 
     } finally {
         if (session != null)
